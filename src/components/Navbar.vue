@@ -6,7 +6,7 @@
       justify-between
       items-center
       px-20
-      py-10
+      py-20
       rounded-bl-full
     "
   >

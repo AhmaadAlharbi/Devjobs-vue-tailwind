@@ -4,6 +4,8 @@
 
 @tailwind utilities;
 
-nav{
-   background-image: url(./desktop/bg-pattern-header.svg);
+nav {
+  background-image: url(./desktop/bg-pattern-header.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
