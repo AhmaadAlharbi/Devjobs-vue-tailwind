@@ -20,7 +20,9 @@
     <h4 class="text-Gray my-3 block">
       {{ job.postedAt }} . {{ job.contract }}
     </h4>
-    <h1 class="text-xl font-bold">{{ job.position }}</h1>
+    <router-link :to="{ name: 'ShowJob', params: { id: job.id } }">
+      <h1 class="text-xl font-bold">{{ job.position }}</h1>
+    </router-link>
     <h3 class="text-md text-Gray my-2">{{ job.company }}</h3>
     <h4 class="text-violet font-bold mt-5">{{ job.location }}</h4>
   </div>

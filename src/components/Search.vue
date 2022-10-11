@@ -1,16 +1,5 @@
 <template>
-  <from
-    class="
-      max-w-7xl
-      flex
-      container
-      justify-center
-      items-center
-      -translate-y-5
-      w-full
-      bg-white
-    "
-  >
+  <from class="max-w-5xl flex items-center -translate-y-5 w-full bg-white">
     <div class="relative w-full">
       <div
         class="
@@ -32,9 +21,25 @@
         </svg>
       </div>
       <input
+        id="title"
         type="text"
-        class="rounded-md flex-1 w-[100%] border-none focus:ring-0 mx-10 z-0"
+        class="hidden lg:block flex-1 w-full border-none focus:ring-0 mx-7 z-0"
         placeholder="Filter by title, companies, expertise…"
+      />
+      <input
+        type="text"
+        class="
+          block
+          lg:hidden
+          rounded-md
+          flex-1
+          w-[100%]
+          border-none
+          focus:ring-0
+          mx-10
+          z-0
+        "
+        placeholder="Filter by title"
       />
     </div>
 
@@ -82,5 +87,5 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 </style>
