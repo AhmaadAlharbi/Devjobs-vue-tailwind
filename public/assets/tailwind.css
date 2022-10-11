@@ -1,0 +1,9 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+nav{
+   background-image: url(./desktop/bg-pattern-header.svg);
+}
