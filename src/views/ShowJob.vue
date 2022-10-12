@@ -5,7 +5,6 @@
       class="
         -translate-y-5
         bg-white
-        px-6
         py-4
         lg:w-[730px] lg:h-[140px]
         flex flex-col
@@ -15,7 +14,8 @@
         relative
       "
     >
-      <div>
+      <!-- {{ job.logoBackground }} -->
+      <div class="{job.logoBackground}">
         <img
           :src="'.' + job.logo"
           class="w-[140px] h-[140px] border-none"
@@ -119,6 +119,7 @@ export default {
     return {
       uri: "http://localhost:3000/jobs/" + this.id,
       job: [],
+      active: true,
     };
   },
   mounted() {

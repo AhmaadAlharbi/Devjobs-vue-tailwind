@@ -10,7 +10,9 @@
       rounded-bl-full
     "
   >
-    <h1 class="text-white text-2xl">Devjobs</h1>
+    <router-link to="/">
+      <h1 class="text-white text-2xl">Devjobs</h1>
+    </router-link>
     <div class="flex justify-center items-center space-x-2">
       <img src="../assets/desktop/icon-sun.svg" alt="" />
       <label
