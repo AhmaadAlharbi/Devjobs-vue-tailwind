@@ -1,7 +1,8 @@
 <template>
   <div class="flex flex-col justify-center items-center">
-    <Search />
+    <Search @opacity="toggleBody" />
     <div
+      id="main"
       v-if="jobs.length"
       class="
         grid grid-cols-1
@@ -43,5 +44,22 @@ export default {
 
     console.log(this.jobs);
   },
+  methods: {
+    toggleBody() {
+      const mainBody = document.getElementById("main");
+    },
+  },
 };
 </script>
+<style>
+/* .dark {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  opacity: 0.8;
+} */
+</style>
