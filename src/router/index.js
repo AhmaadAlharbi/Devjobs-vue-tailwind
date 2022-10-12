@@ -9,7 +9,7 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/job/:id",
+    path: "/:id",
     name: "ShowJob",
     component: ShowJob,
     props: true,
