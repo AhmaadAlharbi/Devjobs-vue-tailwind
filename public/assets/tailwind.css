@@ -4,6 +4,20 @@
 
 @tailwind utilities;
 
-nav{
-   background-image: url(./desktop/bg-pattern-header.svg);
+nav {
+  background-image: url(./desktop/bg-pattern-header.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 960px) {
+  nav {
+    background-image: url(./tablet/bg-pattern-header.svg);
+  }
+}
+
+@media (max-width: 576px) {
+  nav {
+    background-image: url(./mobile/bg-pattern-header.svg);
+  }
 }
