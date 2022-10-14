@@ -5,6 +5,8 @@
       class="
         -translate-y-5
         bg-white
+        dark:bg-[#242e3f] dark:text-white
+        font-Kumbh
         py-4
         lg:w-[730px] lg:h-[140px]
         flex flex-col
@@ -15,8 +17,13 @@
       "
     >
       <!-- {{ job.logoBackground }} -->
-      {{ logoBackground }}
-      <div>
+      <!-- {{ logoBackground }} -->
+      <!-- { [`bg-[${job.logoBackground}]`]: active } -->
+      <!-- <div class="bg-[#e54b24] invisible"></div>
+      <div class="bg-[#ea9310] invisible"></div>
+      <div class="bg-[#353641] invisible"></div>
+      <div class="bg-[#2f4fc6] invisible"></div> -->
+      <div :class="[`bg-[${job.logoBackground}]`]">
         <img
           :src="'.' + job.logo"
           class="w-[140px] h-[140px] border-none bg-[job.logoBackground]"
@@ -31,6 +38,7 @@
         class="
           bg-LightGrey
           text-violet
+          dark:bg-midNight dark:text-white
           font-bold
           mt-5
           md:mt-0 md:absolute md:right-10
@@ -42,12 +50,12 @@
       </button>
     </div>
     <!-- description -->
-    <div class="bg-white lg:w-[730px] px-6 py-4 text-left">
+    <div class="bg-white dark:bg-[#242e3f] lg:w-[730px] px-6 py-4 text-left">
       <h4 class="text-Gray my-3 block">
         {{ job.postedAt }} . {{ job.contract }}
       </h4>
       <div class="flex flex-col md:flex-row justify-between items-center">
-        <h1 class="text-xl font-bold">{{ job.position }}</h1>
+        <h1 class="text-xl font-bold dark:text-white">{{ job.position }}</h1>
 
         <div>
           <button
@@ -70,7 +78,7 @@
       <p class="text-md text-DarkGrey my-10 leading-loose">
         {{ job.description }}
       </p>
-      <h4 class="text-xl font-bold">Requirements</h4>
+      <h4 class="text-xl font-bold dark:text-white">Requirements</h4>
       <div v-for="(value, key, index) in job.requirements" :key="key">
         <p v-if="index == 0" class="text-md text-DarkGrey my-10 leading-loose">
           {{ value }}
@@ -85,7 +93,7 @@
           </li>
         </ul>
       </div>
-      <h4 class="text-xl font-bold my-6">What You Will Do</h4>
+      <h4 class="text-xl font-bold my-6 dark:text-white">What You Will Do</h4>
       <div v-for="(value, key, index) in job.role" :key="key">
         <p v-if="index == 0" class="text-md text-DarkGrey my-10 leading-loose">
           {{ value }}
@@ -101,7 +109,17 @@
         </ul>
       </div>
     </div>
-    <footer class="flex justify-evenly items-center w-full bg-white mt-20">
+    <footer
+      class="
+        flex
+        justify-evenly
+        items-center
+        w-full
+        bg-white
+        dark:bg-midNight dark:text-white
+        mt-20
+      "
+    >
       <div class="ml-4 hidden md:block">
         <h1 class="text-3xl my-4 font-bold">{{ job.position }}</h1>
         <h3 class="text-xl">{{ job.company }}</h3>

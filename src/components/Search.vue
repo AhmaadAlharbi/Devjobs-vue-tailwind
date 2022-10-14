@@ -1,7 +1,7 @@
 <template>
   <form
     class="
-      max-w-5xl
+      container
       md:flex
       items-center
       -translate-y-5
@@ -9,7 +9,10 @@
       bg-white
       hidden
       rounded-2xl
-      px-10
+      font-Kumbh
+      px-8
+      py-4
+      dark:bg-midNight dark:text-white
     "
   >
     <div class="relative flex w-full">
@@ -34,6 +37,7 @@
           focus:ring-0
           z-0
           w-full
+          dark:bg-midNight
         "
         placeholder="Filter by title, companies, expertise…"
       />
@@ -48,6 +52,7 @@
           border-none
           focus:ring-0
           mx-10
+          dark:bg-midNight
           z-0
         "
         placeholder="Filter by title"
@@ -88,15 +93,27 @@
           focus:ring-0
           z-10
           flex-1
+          dark:bg-midNight
         "
         placeholder="Filter by location…"
       />
     </div>
     <span class="border-r border-Gray h-16 z-20"></span>
 
-    <div class="bg-white flex justify-center items-center w-[100%]">
+    <div
+      class="
+        bg-white
+        flex
+        justify-center
+        items-center
+        w-[100%]
+        dark:bg-midNight
+      "
+    >
       <input type="checkbox" class="bg-Gray" v-model="fullTime" />
-      <label for="" class="text-black ml-3 font-bold">Full time only</label>
+      <label for="" class="text-black ml-3 font-bold dark:text-white"
+        >Full time only</label
+      >
     </div>
     <button
       @click.prevent="hanldeSubmit"
@@ -112,12 +129,13 @@
       max-w-5xl
       top-60
       px-20
-      flex
+      flex flex-col
       justify-center
       items-center
       -translate-y-5
       md:hidden
       z-40
+      font-Kumbh
     "
   >
     <div class="flex justify-between items-center mt-10">
@@ -125,7 +143,7 @@
         <input
           v-model="title"
           type="text"
-          class="border-none mx-10 px-4 focus:ring-0 z-10"
+          class="border-none mx-10 px-4 focus:ring-0 z-10 dark:bg-midNight"
           placeholder="by title"
         />
       </div>
@@ -152,9 +170,18 @@
     </div>
     <div
       v-if="showSearch"
-      class="flex md:hidden flex-col justify-center items-center"
+      class="flex mt-20 md:hidden flex-col justify-center items-center"
     >
-      <div class="w-full h-full py-12 bg-white divide-y-2 divide-slate-200">
+      <div
+        class="
+          w-full
+          h-full
+          py-12
+          bg-white
+          dark:bg-midNight
+          divide-y-2 divide-slate-200
+        "
+      >
         <div class="relative w-full">
           <div
             class="
@@ -163,8 +190,8 @@
               items-center
               pointer-events-none
               absolute
-              top-0
-              right-0
+              top-2
+              left-5
             "
           >
             <svg width="17" height="24" xmlns="http://www.w3.org/2000/svg">
@@ -178,13 +205,24 @@
           <input
             type="text"
             v-model="location"
-            class="rounded-md w-[100%] border-none mx-10 px-4 focus:ring-0 z-10"
+            class="
+              rounded-md
+              border-none
+              mx-10
+              px-4
+              focus:ring-0
+              z-10
+              over
+              py-4
+              dark:bg-[#19202D]
+            "
             placeholder="Filter by location…"
           />
         </div>
         <div
           class="
             bg-white
+            dark:bg-midNight
             flex flex-col
             justify-center
             items-center
@@ -194,7 +232,7 @@
         >
           <div>
             <input type="checkbox" class="bg-Gray" v-model="fullTime" />
-            <label for="" class="text-black ml-3 font-bold"
+            <label for="" class="text-black ml-3 font-bold dark:text-white"
               >Full time only</label
             >
           </div>
@@ -214,7 +252,7 @@
 export default {
   data() {
     return {
-      showSearch: false,
+      showSearch: true,
       title: "",
       location: "",
       fullTime: false,

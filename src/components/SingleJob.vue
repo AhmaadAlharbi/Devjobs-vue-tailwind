@@ -14,6 +14,7 @@
       text-left
       my-5
       md:my-10
+      font-Kumbh
     "
   >
     <img :src="job.logo" class="absolute -top-5" alt="logo" />
@@ -21,7 +22,7 @@
       {{ job.postedAt }} . {{ job.contract }}
     </h4>
     <router-link :to="{ name: 'ShowJob', params: { id: job.id } }">
-      <h1 class="text-xl font-bold">{{ job.position }}</h1>
+      <h1 class="text-xl font-bold dark:text-white">{{ job.position }}</h1>
     </router-link>
     <h3 class="text-md text-Gray my-2">{{ job.company }}</h3>
     <h4 class="text-violet font-bold mt-5">{{ job.location }}</h4>

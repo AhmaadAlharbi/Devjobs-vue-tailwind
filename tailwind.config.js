@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./public/**/*.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -10,11 +11,11 @@ module.exports = {
         LightGrey: "#F4F6F8",
         Gray: "#9DAEC2",
         DarkGrey: "#6E8098",
+        midNight: "#121721",
+        Company3: "hsl(235, 10%, 23%)",
       },
       fontFamily: {
-        Montserrat: ["Montserrat", "sans-serif"],
-        Pacifico: ["Pacifico", "cursive"],
-        Poppins: ["Poppins", "sans-serif"],
+        Kumbh: ["Kumbh Sans", "sans-serif"],
       },
     },
   },

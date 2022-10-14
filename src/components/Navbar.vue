@@ -15,6 +15,7 @@
     </router-link>
     <div class="flex justify-center items-center space-x-2">
       <img src="../assets/desktop/icon-sun.svg" alt="" />
+
       <label
         for="default-toggle"
         class="inline-flex relative items-center cursor-pointer"
@@ -24,6 +25,7 @@
           value=""
           id="default-toggle"
           class="sr-only peer"
+          @click="toggleDark"
         />
         <div
           class="
@@ -60,7 +62,21 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    toggleDark() {
+      document
+        .getElementById("default-toggle")
+        .addEventListener("change", function () {
+          if (this.checked) {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
+        });
+    },
+  },
+};
 </script>
 
 <style>
