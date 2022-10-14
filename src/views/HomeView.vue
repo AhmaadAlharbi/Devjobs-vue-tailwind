@@ -1,6 +1,10 @@
 <template>
   <div class="flex flex-col justify-center items-center">
-    <Search @opacity="toggleBody" />
+    <Search
+      @title="handleTitle"
+      @location="handleLocation"
+      @fullTime="handleFullTime"
+    />
     <div
       id="main"
       v-if="jobs.length"
@@ -19,8 +23,18 @@
     <div v-else>
       <h3>no jobs</h3>
     </div>
-    <button class="bg-violet text-white px-6 py-2 rounded-lg font-bold">
+    <button
+      v-if="false"
+      class="bg-violet text-white px-6 py-2 rounded-lg font-bold"
+    >
       Load more
+    </button>
+    <button
+      v-if="homePageButton"
+      @click="showJobs"
+      class="bg-violet text-white px-6 py-2 rounded-lg font-bold"
+    >
+      Back to Home Page
     </button>
   </div>
 </template>
@@ -31,9 +45,11 @@ import SingleJob from "../components/SingleJob.vue";
 export default {
   name: "HomeView",
   components: { Search, SingleJob },
+  emits: ["title", "location", "fullTime"],
   data() {
     return {
       jobs: [],
+      homePageButton: false,
     };
   },
   mounted() {
@@ -45,8 +61,33 @@ export default {
     console.log(this.jobs);
   },
   methods: {
-    toggleBody() {
-      const mainBody = document.getElementById("main");
+    handleTitle(title) {
+      if (title !== "") {
+        this.jobs = this.jobs.filter((job) => {
+          return job.company === title;
+        });
+        this.homePageButton = true;
+      }
+    },
+    handleLocation(location) {
+      if (location !== "") {
+        this.jobs = this.jobs.filter((job) => {
+          return job.location === location;
+        });
+        this.homePageButton = true;
+      }
+    },
+    handleFullTime() {
+      this.jobs = this.jobs.filter((job) => {
+        return job.contract === "Full Time";
+      });
+      this.homePageButton = true;
+    },
+    showJobs() {
+      fetch("http://localhost:3000/jobs")
+        .then((res) => res.json())
+        .then((data) => (this.jobs = data))
+        .catch((err) => console.log(err.message));
     },
   },
 };

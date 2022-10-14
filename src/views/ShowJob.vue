@@ -15,10 +15,11 @@
       "
     >
       <!-- {{ job.logoBackground }} -->
-      <div class="{job.logoBackground}">
+      {{ logoBackground }}
+      <div>
         <img
           :src="'.' + job.logo"
-          class="w-[140px] h-[140px] border-none"
+          class="w-[140px] h-[140px] border-none bg-[job.logoBackground]"
           alt="logo"
         />
       </div>
@@ -128,6 +129,11 @@ export default {
       .then((data) => (this.job = data))
       .catch((err) => console.log(err.message));
     // console.log(this.job);
+  },
+  computed: {
+    logoBackground() {
+      return this.job.logoBackground;
+    },
   },
 };
 </script>
