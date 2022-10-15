@@ -53,7 +53,7 @@ export default {
     };
   },
   mounted() {
-    fetch("https://ahmaadalharbi.github.io/Devjobs-vue-tailwind/data.json")
+    fetch("http://localhost:3000/jobs")
       .then((res) => res.json())
       .then((data) => (this.jobs = data))
       .catch((err) => console.log(err.message));
