@@ -252,7 +252,7 @@
 export default {
   data() {
     return {
-      showSearch: true,
+      showSearch: false,
       title: "",
       location: "",
       fullTime: false,
