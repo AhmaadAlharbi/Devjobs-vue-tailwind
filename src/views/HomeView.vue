@@ -42,23 +42,19 @@
 <script>
 import Search from "../components/Search.vue";
 import SingleJob from "../components/SingleJob.vue";
+import data from "../data.json";
 export default {
   name: "HomeView",
   components: { Search, SingleJob },
   emits: ["title", "location", "fullTime"],
   data() {
     return {
-      jobs: [],
+      jobs: Object.values(data),
       homePageButton: false,
     };
   },
   mounted() {
-    fetch("https://ahmaadalharbi.github.io/Devjobs-vue-tailwind/data/db.json")
-      .then((res) => res.json())
-      .then((data) => (this.jobs = data))
-      .catch((err) => console.log(err.message));
-
-    console.log(this.jobs);
+    console.log(JSON.parse(JSON.stringify(this.jobs)));
   },
   methods: {
     handleTitle(title) {
@@ -84,10 +80,7 @@ export default {
       this.homePageButton = true;
     },
     showJobs() {
-      fetch("http://localhost:3000/jobs")
-        .then((res) => res.json())
-        .then((data) => (this.jobs = data))
-        .catch((err) => console.log(err.message));
+      this.jobs = data;
     },
   },
 };

@@ -1,5 +1,9 @@
 <template>
-  <div class="flex flex-col justify-center items-center">
+  <div
+    class="flex flex-col justify-center items-center"
+    v-for="job in getData($route.params.id)"
+    :key="job.id"
+  >
     <!-- <from class="max-w-5xl flex items-center -translate-y-5 w-full bg-white"> -->
     <div
       class="
@@ -23,6 +27,7 @@
       <div class="bg-[#ea9310] invisible"></div>
       <div class="bg-[#353641] invisible"></div>
       <div class="bg-[#2f4fc6] invisible"></div> -->
+
       <div :class="[`bg-[${job.logoBackground}]`]">
         <img
           :src="'.' + job.logo"
@@ -132,25 +137,25 @@
 </template>
 
 <script>
+import data from "../data.json";
+
 export default {
   props: ["id"],
   data() {
     return {
-      uri: "http://localhost:3000/jobs/" + this.id,
-      job: [],
+      jobs: Object.values(data),
       active: true,
     };
   },
   mounted() {
-    fetch(this.uri)
-      .then((res) => res.json())
-      .then((data) => (this.job = data))
-      .catch((err) => console.log(err.message));
-    // console.log(this.job);
+    // console.log(JSON.parse(JSON.stringify(this.job)));
   },
-  computed: {
-    logoBackground() {
-      return this.job.logoBackground;
+  methods: {
+    getData(id) {
+      let data = this.jobs;
+      return data.filter((item) => {
+        return item.id == id;
+      });
     },
   },
 };
